@@ -14,9 +14,17 @@
 /**
  * @brief Main function / entry point.
  */
-int main()
+int main(int argc, char *argv[])
 {
+  if (argc < 2) {
+    std::cerr << "Use:\n  " << argv[0] << " <count_commands>\n";
+    return EXIT_FAILURE;
+  }
 
-  return 0;
+  size_t commands_per_block = std::stoul(argv[1]);
+
+
+  (void)commands_per_block;
+  return EXIT_SUCCESS;
 }
 
