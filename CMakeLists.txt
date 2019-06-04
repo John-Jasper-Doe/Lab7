@@ -1,3 +1,11 @@
+# ----------------------------------------------------------------------------
+#  Root CMake file for BULK Project
+#
+#    From the off-tree build directory, invoke:
+#      $ cmake <PATH_TO_BULK_ROOT>
+#
+# ----------------------------------------------------------------------------
+
 cmake_minimum_required(VERSION 3.2)
 
 if (DEFINED ENV{TRAVIS_BUILD_NUMBER})
