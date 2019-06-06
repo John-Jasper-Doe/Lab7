@@ -8,6 +8,8 @@
  */
 
 
+#include "io/logger.hpp"
+
 #include <iostream>
 
 
@@ -25,6 +27,8 @@ int main(int argc, char *argv[])
 
 
   (void)commands_per_block;
+
+
   return EXIT_SUCCESS;
 }
 

@@ -16,6 +16,10 @@
 #define JJD_LOGGER_H_
 
 
+#include <chrono>
+#include <vector>
+#include <string>
+
 /**
  * The namespace of the LibJJD
  */
@@ -24,13 +28,22 @@ namespace jjd {
 /**
  * Logger for print bulk in file
  */
-class Logger
+class logger
 {
+    using time_point_t = std::chrono::time_point<std::chrono::system_clock>;
+
   public:
-    Logger() = default;
+    explicit logger(std::ostream &ostream) : ostream_(ostream) {}
+    virtual ~logger() = default;
 
     void write_to_file(const time_point_t &time_point,
-           const std::vector<std::string> &text_results);
+                       const std::vector<std::string> &text_results);
+
+    void display_output(const std::vector<std::string> &text_results);
+
+
+  private:
+    std::ostream &ostream_;
 };
 
 } /* namespace jjd */
