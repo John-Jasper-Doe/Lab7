@@ -21,6 +21,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 # File Path
 file(GLOB DIR_ROOT_SRC src/*.cpp)
+file(GLOB DIR_UTILS_HDRS src/utils/*.hpp)
 
 file(GLOB DIR_IO_SRCS src/io/*.cpp)
 file(GLOB DIR_IO_HDRS src/io/*.hpp)
@@ -28,6 +29,7 @@ file(GLOB DIR_IO_HDRS src/io/*.hpp)
 # make executable file for application
 add_executable(${PROJECT_NAME} ${DIR_ROOT_SRC}
                                ${DIR_IO_SRCS}
+                               ${DIR_UTILS_HDRS}
                                ${DIR_IO_HDRS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
