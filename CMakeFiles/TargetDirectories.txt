@@ -1,9 +1,0 @@
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/install/strip.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/install/local.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/install.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/list_install_components.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/rebuild_cache.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/bulk.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/package.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/package_source.dir
-/home/travis/build/John-Jasper-Doe/Lab6/CMakeFiles/edit_cache.dir
