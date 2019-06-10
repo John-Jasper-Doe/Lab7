@@ -18,9 +18,9 @@
 namespace {
 
 /**
- * @brief concat_results
- * @param text_results
- * @return
+ * @brief Сoncatenation of commands in one line of the result.
+ * @param text_results [in] - array of commands.
+ * @return Result line, single line commands.
  */
 std::string concat_results(const std::vector<std::string> &text_results)
 {

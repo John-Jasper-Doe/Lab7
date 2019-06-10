@@ -29,8 +29,19 @@ template<typename ...ARGS>
 class observer
 {
   public:
+    /**
+     * The default constructor.
+     */
     observer() = default;
+
+    /**
+     * The default distructor.
+     */
     virtual ~observer() = default;
+
+    /**
+     * @brief update all observer.
+     */
     virtual void update(const ARGS &...) = 0;
 };
 

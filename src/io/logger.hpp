@@ -28,28 +28,44 @@
 namespace jjd {
 
 /**
- * Logger for print bulk in file
+ * Logger for print bulk in file and console.
  */
 class logger
 {
     using time_point_t = std::chrono::time_point<std::chrono::system_clock>;
 
   public:
+    /**
+     * @brief The construcor.
+     * @param ostream [in] - ref on console.
+     * @param log_file [in] - ref on log file.
+     */
     explicit logger(std::ostream &ostream, std::ofstream &log_file)
       : console_(ostream)
       , log_file_(log_file)
     {}
 
+    /**
+     * The default distructor.
+     */
     virtual ~logger() = default;
 
+    /**
+     * @brief Write the data to log-file.
+     * @param text_results [in] - array of command.
+     */
     void write_to_file(const std::vector<std::string> &text_results);
 
+    /**
+     * @brief Display data on the console.
+     * @param text_results [in] - array of commsnd.
+     */
     void display_output(const std::vector<std::string> &text_results);
 
 
   private:
-    std::ostream &console_;
-    std::ofstream &log_file_;
+    std::ostream &console_;   /**< - ref. on the console. */
+    std::ofstream &log_file_; /**< - ref. on the log-file. */
 };
 
 } /* namespace jjd */
