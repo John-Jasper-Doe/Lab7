@@ -30,7 +30,7 @@ namespace jjd {
 /**
  * @brief The reader class
  */
-class reader : public subject<std::string>
+class reader final : public subject<std::string>
 {
   public:
     /**
