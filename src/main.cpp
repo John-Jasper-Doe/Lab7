@@ -8,9 +8,11 @@
  */
 
 
-#include "io/logger.hpp"
+#include "io/reader.hpp"
+#include "core/controller.hpp"
 
 #include <iostream>
+#include <memory>
 
 
 /**
@@ -23,11 +25,19 @@ int main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
-  size_t commands_per_block = std::stoul(argv[1]);
+  std::shared_ptr<jjd::reader> reader =
+      std::make_unique<jjd::reader>(std::cin);
 
+  std::shared_ptr<jjd::controller> sptr_controller(new jjd::controller());
+  std::weak_ptr<jjd::controller> wptr_controller(sptr_controller);
 
-  (void)commands_per_block;
+  reader.get()->attach(wptr_controller);
 
+  sptr_controller.get()->set_commands_per_block(std::stoul(argv[1]));
+  sptr_controller.get()->set_reader(reader);
+  sptr_controller.get()->start();
+
+  reader.get()->unfasten(wptr_controller);
 
   return EXIT_SUCCESS;
 }
