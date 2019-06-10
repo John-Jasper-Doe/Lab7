@@ -19,6 +19,8 @@
 #include <chrono>
 #include <vector>
 #include <string>
+#include <fstream>
+#include <iostream>
 
 /**
  * The namespace of the LibJJD
@@ -33,17 +35,21 @@ class logger
     using time_point_t = std::chrono::time_point<std::chrono::system_clock>;
 
   public:
-    explicit logger(std::ostream &ostream) : ostream_(ostream) {}
+    explicit logger(std::ostream &ostream, std::ofstream &log_file)
+      : console_(ostream)
+      , log_file_(log_file)
+    {}
+
     virtual ~logger() = default;
 
-    void write_to_file(const time_point_t &time_point,
-                       const std::vector<std::string> &text_results);
+    void write_to_file(const std::vector<std::string> &text_results);
 
     void display_output(const std::vector<std::string> &text_results);
 
 
   private:
-    std::ostream &ostream_;
+    std::ostream &console_;
+    std::ofstream &log_file_;
 };
 
 } /* namespace jjd */

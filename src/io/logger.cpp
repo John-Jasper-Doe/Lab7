@@ -11,7 +11,6 @@
 
 #include "logger.hpp"
 
-#include <fstream>
 
 /**
  * Anonymous namespace to hide.
@@ -39,19 +38,13 @@ std::string concat_results(const std::vector<std::string> &text_results)
 
 
 /* ------------------------------------------------------------------------- */
-void jjd::logger::write_to_file(const jjd::logger::time_point_t &time_point,
-                                const std::vector<std::string> &text_results)
+void jjd::logger::write_to_file(const std::vector<std::string> &text_results)
 {
-  std::string path = std::to_string(time_point.time_since_epoch().count()) +
-                     ".log";
-
-  std::ofstream log_file(path);
-  if (log_file.is_open())
-    log_file << concat_results(text_results) << '\n';
+  log_file_ << concat_results(text_results) << '\n';
 }
 
 /* ------------------------------------------------------------------------- */
 void jjd::logger::display_output(const std::vector<std::string> &text_results)
 {
-  ostream_ << "bulk: " << concat_results(text_results) << '\n';
+  console_ << "bulk: " << concat_results(text_results) << '\n';
 }
