@@ -1,0 +1,1 @@
+/usr/bin/g++    -rdynamic CMakeFiles/bulk.dir/src/main.cpp.o CMakeFiles/bulk.dir/src/core/controller.cpp.o CMakeFiles/bulk.dir/src/io/logger.cpp.o CMakeFiles/bulk.dir/src/io/reader.cpp.o  -o /home/travis/build/John-Jasper-Doe/bin/bulk -lpthread 
