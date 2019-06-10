@@ -52,8 +52,6 @@ class subject
      */
     virtual ~subject() = default;
 
-
-  protected:
     /**
      * @brief Add the observer.
      * @param obs [in] - pointer to the observer.
@@ -78,6 +76,7 @@ class subject
       }
     }
 
+  protected:
     /**
      * @brief Notify all observers.
      * @param args [in] - arguments that are passed to observers.
