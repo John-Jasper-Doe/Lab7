@@ -26,10 +26,15 @@ file(GLOB DIR_UTILS_HDRS src/utils/*.hpp)
 file(GLOB DIR_IO_SRCS src/io/*.cpp)
 file(GLOB DIR_IO_HDRS src/io/*.hpp)
 
+file(GLOB DIR_CORE_SRCS src/core/*.cpp)
+file(GLOB DIR_CORE_HDRS src/core/*.hpp)
+
 # make executable file for application
 add_executable(${PROJECT_NAME} ${DIR_ROOT_SRC}
-                               ${DIR_IO_SRCS}
                                ${DIR_UTILS_HDRS}
+                               ${DIR_CORE_SRCS}
+                               ${DIR_CORE_HDRS}
+                               ${DIR_IO_SRCS}
                                ${DIR_IO_HDRS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
