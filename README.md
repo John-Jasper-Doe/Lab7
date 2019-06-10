@@ -4,3 +4,4 @@
 
 ## Otus Developer C++ Course
 Homework "BULK"
+Manual: https://john-jasper-doe.github.io/Lab6/index.html
