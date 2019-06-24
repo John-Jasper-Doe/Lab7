@@ -44,7 +44,10 @@ class controller final : public observer<std::string>
     /**
      * The default distructor.
      */
-    ~controller() = default;
+    ~controller() {
+      if (pool_.size() > 0 && depth_ == 0)
+        flush();
+    }
 
     /**
      * @brief Update on the change in the state of the subject.
@@ -89,7 +92,7 @@ class controller final : public observer<std::string>
     std::shared_ptr<jjd::reader> reader_;   /**< - the reader from console. */
     std::ofstream log_file_;                /**< - file for logging. */
 
-    static bool init_logger_; /**< - switcher to initialize log-file. */
+//    static bool init_logger_; /**< - switcher to initialize log-file. */
 };
 
 } /* namespace jjd */

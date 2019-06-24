@@ -41,10 +41,12 @@ std::string concat_results(const std::vector<std::string> &text_results)
 void jjd::logger::write_to_file(const std::vector<std::string> &text_results)
 {
   log_file_ << concat_results(text_results) << '\n';
+  log_file_.flush();
 }
 
 /* ------------------------------------------------------------------------- */
 void jjd::logger::display_output(const std::vector<std::string> &text_results)
 {
   console_ << "bulk: " << concat_results(text_results) << '\n';
+  console_.flush();
 }

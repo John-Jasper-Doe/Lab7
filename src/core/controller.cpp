@@ -15,14 +15,15 @@
 #include <iostream>
 
 
-bool jjd::controller::init_logger_ = false;
+//bool jjd::controller::init_logger_ = false;
 
 /* ------------------------------------------------------------------------- */
 void jjd::controller::update(const std::string &str)
 {
   if (str == "{") {
     if (depth_ == 0) {
-      flush();
+      if (pool_.size() > 0)
+        flush();
       ++depth_;
     }
     else
@@ -57,7 +58,7 @@ void jjd::controller::start()
 /* ------------------------------------------------------------------------- */
 void jjd::controller::flush()
 {
-  if (!init_logger_) {
+//  if (!init_logger_) {
     auto first_command_time =
                      pool_.get_first_command_time().time_since_epoch().count();
     std::string path = std::to_string(first_command_time) + ".log";
@@ -65,12 +66,13 @@ void jjd::controller::flush()
     log_file_.open(path);
     if (log_file_.is_open()) {
       logger_ = std::make_unique<jjd::logger>(std::cout, log_file_);
-      init_logger_ = true;
+//      init_logger_ = true;
     }
-  }
+//  }
 
   logger_.get()->write_to_file(pool_.get_pool());
   logger_.get()->display_output(pool_.get_pool());
 
   pool_.clear();
+  log_file_.close();
 }
