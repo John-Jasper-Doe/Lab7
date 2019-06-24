@@ -17,7 +17,14 @@ endif ()
 # find packages ...
 find_package(Threads)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
+if (WIN32)
+  # For QT
+  set(Qt5Core_DIR "C:/Qt/Qt5.10.1/5.10.1/mingw53_32/lib/cmake/Qt5Core")
+  set(Qt5_DIR "C:/Qt/Qt5.10.1/5.10.1/mingw53_32/lib/cmake/Qt5")
+  set(QT_QMAKE_EXECUTABLE "C:/Qt/Qt5.10.1/5.10.1/mingw53_32/bin/qmake.exe")
+endif()
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 # File Path
 file(GLOB DIR_ROOT_SRC src/*.cpp)
